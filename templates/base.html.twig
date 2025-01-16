@@ -34,8 +34,19 @@
 				</div>
 			</nav>
 		</header>
-        {% block body %}
-	   
-	   {% endblock %}
+        {% block body %}{% endblock %}
+
+		<footer>
+			{% block footer %}
+			<div class="link">
+				<div class="network">
+					<a href="https://fr.pinterest.com/" target="_blank"><i class="fa-brands fa-pinterest"></i></a>
+					<a href="#https://x.com/?lang=fr" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+					<a href="https://www.facebook.com/?locale=fr_FR" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+				</div>
+			<i class="fa-regular fa-copyright"> - 2024 - Les Trésors des Temps Passés</i>
+			</div>
+			{% endblock %}
+		</footer>
     </body>
 </html>

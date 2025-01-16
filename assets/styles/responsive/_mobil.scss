@@ -1,0 +1,22 @@
+
+
+@media screen and (max-width:700px) {
+	.fa-bars{
+		display: block;
+		margin-right: 2rem;
+	}
+	ul{
+		display: none;
+	}
+	.menu_dropdown:hover ul{
+		display: block;
+		position: absolute;
+		top: 1.5em;
+		right: 0;
+		background-color: #fff;
+		
+	}
+	ul li{
+		padding: 1rem;
+	}
+}

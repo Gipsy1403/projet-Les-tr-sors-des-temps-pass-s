@@ -3,7 +3,34 @@
 {% block title %}Accueil{% endblock %}
 
 {% block body %}
+	<h1>"Découvrez l'élégance intemporelle des parapluies et ombrelles de collection"</h1>
+<p>Bienvenue sur Les Trésors des Temps Passés, votre destination incontournable pour découvrir des parapluies et ombrelles anciens, de collection, et d’exception. Passionnés par les objets rares et précieux, nous vous offrons une sélection unique de pièces datant de plusieurs siècles, soigneusement choisies pour leur histoire, leur élégance et leur savoir-faire artisanal.</p>
 
+<p>Chaque parapluie et chaque ombrelle que nous proposons est une œuvre d'art à part entière. Que vous soyez un collectionneur aguerri, un amateur d’objets vintage ou simplement un passionné de belles pièces, vous trouverez sur notre site des accessoires d’une grande rareté, fabriqués à une époque où chaque détail comptait.</p>
+
+	{% for umbrella in umbrellas %}
+	{{dump(umbrella)}}
+		<article>
+			<div>
+				<div class="main_article">
+					<img src="" alt="Image parapluie/ombrelle">
+					<h2></h2>
+					<p><strong>Description :</strong></p>
+					<a href={{path("modify_umbrella",{"id":umbrella.id})}}>Modifier</a>
+				</div>
+				<div class="btn_bloc">
+					<a href={{path('modify_umbrella',{'id':umbrella.id})}}>modifier</a>
+					<form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('delete_umbrella',{'id': umbrella.id})}}">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ umbrella.id)}}">
+						<button class="btn_suppr">Suppimer</button>
+					</form>
+				</div>	
+			</div>
+
+		</article>
+	{% endfor %}	
+	
 {# /* <style>
     .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
     .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
