@@ -1,0 +1,18 @@
+@use "../abstract/variable.scss" as v;
+@use "../abstract/mixin.scss" as m;
+
+
+
+*{
+    margin:0;
+    padding:0;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+main{
+    padding:2rem;
+    @include m.flex(column,center,center);
+}
+

@@ -1,0 +1,49 @@
+@use "../abstract/variable.scss" as v; 
+@use "../abstract/mixin.scss" as m; 
+
+nav{
+    background-color: v.$btnColor;
+
+    ul{
+        @include m.flex;
+        padding:2rem 0;
+
+        li{
+            margin:0 1rem;
+        }
+    }
+}
+
+article{
+    margin:1rem 0;
+    // @include m.flex;
+    width: 75vw;
+    height: 200px;
+    
+
+    >div{
+        @include m.flex(row,space-around);
+        width: 100%;
+        height: 100%;
+        
+
+        .main_article{
+            width: 75%;
+        }
+
+        img{
+            width: 25%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .btn_bloc{
+        @include m.flex(row,margin-left);
+
+        a,button{
+            margin-right:1rem;
+            color:v.$decoColor2;
+        }
+    }
+}
