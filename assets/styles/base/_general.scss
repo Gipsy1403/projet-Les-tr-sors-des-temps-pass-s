@@ -1,5 +1,5 @@
-@use "../abstract/variable.scss" as v;
-@use "../abstract/mixin.scss" as m;
+@use "../abstract/variable" as v;
+@use "../abstract/mixin" as m;
 
 @font-face {
       font-family:lato;
@@ -24,9 +24,11 @@
     box-sizing: border-box;
     font-family: v.$textFont;
     color: v.$textColor;
+
 }
 h1,h2,h3,h4,h5,h6 {
 	font-family: v.$titleFont;
+	color: v.$titleColor;
 }
 
 main{

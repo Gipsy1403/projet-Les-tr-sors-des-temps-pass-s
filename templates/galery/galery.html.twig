@@ -3,5 +3,24 @@
 {% block title %}Gallerie{% endblock %}
 
 {% block body %}
-
+{% for umbrella in umbrellas %}
+		<article>
+			<div class="container">
+				<div class="main_article">
+					<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
+					<h2>{{umbrella.title}}</h2>
+					
+					<p><strong>Description : </strong>{{umbrella.description}}</p>
+				</div>
+				<div class="btn_bloc">
+					<a href={{path('modify_umbrella',{'id':umbrella.id})}}>Modifier</a>
+					<form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('delete_umbrella',{'id': umbrella.id})}}">
+						<input type="hidden" name="_method" value="delete">
+						<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ umbrella.id)}}">
+						<button class="btn_suppr">Suppimer</button>
+					</form>
+				</div>	
+			</div>
+		</article>
+	{% endfor %}	
 {% endblock %}

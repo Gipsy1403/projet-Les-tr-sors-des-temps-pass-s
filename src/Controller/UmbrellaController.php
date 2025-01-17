@@ -17,29 +17,31 @@ final class UmbrellaController extends AbstractController{
     #[Route('/umbrella', name: 'add_umbrella')]
     public function index(Umbrella $umbrella = null,Request $request, EntityManagerInterface $entityManager): Response
     {
-	if(!$umbrella){
-		$umbrella=new Umbrella;
-		$umbrella->setUser($this->getUser());
-	}
+		if(!$umbrella){
+			$umbrella=new Umbrella;
+		}
+	$umbrella->setUser($this->getUser());
+	// $userId = $umbrella->getUser() ? $umbrella->getUser()->getId() : null;
+	dd($umbrella);
 	$form = $this->createForm(UmbrellasType::class,$umbrella);
 
 	// Récupération des données POST du formulaire
 	$form->handleRequest($request);
 	// Vérification si le formulaire est soumis et Valide
-	if($form->isSubmitted() && $form->isValid()){
-	    // Persistance des données
-	    $entityManager->persist($umbrella);
-	    // Envoi en BDD
-	    $entityManager->flush();
+		if($form->isSubmitted() && $form->isValid()){
+	// Persistance des données
+		$entityManager->persist($umbrella);
+	// Envoi en BDD
+		$entityManager->flush();
 
-	    // Redirection de l'utilisateur
-	    return $this->redirectToRoute('galery');
+	// Redirection de l'utilisateur
+		return $this->redirectToRoute('galery');
 	}
-        return $this->render('umbrella/addupdate.html.twig', [
-            'umbrellaform' => $form->createView(), //envoie du formulaire en VUE
-            'isModification' => $umbrella->getId() !== null 
-        ]);
-    }
+	return $this->render('umbrella/addupdate.html.twig', [
+		'umbrellaform' => $form->createView(), //envoie du formulaire en VUE
+		'isModification' => $umbrella->getId() !== null 
+	]);
+}
 
     #[Route('/umbrella/delete/{id}', name: 'delete_umbrella')]
     public function remove(Umbrella $umbrella, Request $request, EntityManagerInterface $entityManager): Response

@@ -17,12 +17,11 @@
 
 	{% for umbrella in umbrellas %}
 		<article>
-			<div>
+			<div class="container">
 				<div class="main_article">
 					<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
 					<h2>{{umbrella.title}}</h2>
-					{{dump(umbrella)}}
-					<p><strong>Description :</strong></p>
+					<p><strong>Description : </strong>{{umbrella.description}}</p>
 				</div>
 				<div class="btn_bloc">
 					<a href={{path('modify_umbrella',{'id':umbrella.id})}}>Modifier</a>
@@ -35,5 +34,5 @@
 			</div>
 		</article>
 	{% endfor %}	
-	
+	{{dump(umbrellas)}}
 {% endblock %}

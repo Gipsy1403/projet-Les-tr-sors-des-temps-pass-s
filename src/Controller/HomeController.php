@@ -17,8 +17,9 @@ final class HomeController extends AbstractController{
      //        'umbrellaform' => $form->createView(),
      //    ]);
 		$umbrella=$repository->findAll();
+		
         	return $this->render('home/index.html.twig', [
-            'umbrellas' => $umbrella,
+            'umbrellas' => $umbrella, // on envoie la valeur de $umbrella dans la vue (home.html.twig)
         ]);
     }
 }
