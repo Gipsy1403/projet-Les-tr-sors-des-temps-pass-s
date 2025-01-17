@@ -2,21 +2,61 @@
 @use "../abstract/mixin.scss" as m; 
 
 nav{
-    background-color: v.$foot;
-    height: 3rem;
-    @include m.flex;
-    position: relative;
-    .fa-bars{
-	display: none;
-	color: white;
-	font-size: 1.2em;
-    }
-    ul{
-        padding:2rem 0;
-	   display: flex;
-        li{
-            margin:0 1rem;
-        }
-    }
+	background-color: v.$foot;
+	height: 3rem;
+	@include m.flex;
+	position: relative;
+	.fa-bars{
+		display: none;
+		color: white;
+		font-size: 1.2em;
+	}
+	ul{
+		padding:2rem 0;
+		display: flex;
+		li{
+			
+			margin:0 1rem;
+		}
+		a{
+			font-family: v.$titleFont;
+			color: white;
+			text-shadow: 1px 1px 2px black;
+		}
+	}
 }
+ul li a:hover{
+	color: v.$btnColor;
+	text-shadow: none;
+   }
 
+#banner{
+	background-image: url(/public/images/Capture\ d’écran\ 2025-01-15\ 114928.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 500px;
+	filter: sepia(0.8);
+	opacity: 0.8;
+}
+.banner_content{
+	display: flex;
+	width: 80%;
+	margin: auto;
+}
+.slogan{
+	@include m.flex;
+	font-family: v.$sloganFont;
+	font-size: 2.8em;
+	text-align: center;
+	padding: 3rem;
+	width: 50%;
+}
+.parag{
+	@include m.flex(column,);
+	background-color: rgba(#F8f1e5,0.6);
+	text-align: center;
+	line-height: 1.5em;
+	padding: 3em;
+	width: 50%;
+	border-radius: 20px;
+}

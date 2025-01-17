@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+
+	{# Ternaire pour vérifier l'existance de la variable 'isModification' #}
+	<h1> S'incrire</h1>
+
+	{{form_start(userForm)}}
+	    {{form_widget(userForm)}}
+	    <button>Valider</button>
+	{{form_end(userForm)}}
+	
+{% endblock %}

@@ -3,10 +3,10 @@
 {% block title %}Parapluie{% endblock %}
 
 {% block body %}
-	<h1>Modifier: Ajouter</h1>
+	<h1>{{ isModification ? "Modifier": "Ajouter"}}</h1>
 	{{form_start(umbrellaform)}}
 		{{form_widget(umbrellaform)}}
-		<button>Modifier: Ajouter</button>
+		<button>{{ isModification ? "Modifier": "Ajouter"}}</button>
 	{{form_end(umbrellaform)}}
 
 {% endblock %}

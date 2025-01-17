@@ -5,11 +5,13 @@ namespace App\Controller;
 use App\Entity\Umbrella;
 use App\Form\UmbrellasType;
 use Doctrine\ORM\EntityManagerInterface;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[IsGranted('ROLE_USER')]
 final class UmbrellaController extends AbstractController{
     #[Route('/umbrella/{id}', name: 'modify_umbrella')]
     #[Route('/umbrella', name: 'add_umbrella')]
@@ -17,6 +19,7 @@ final class UmbrellaController extends AbstractController{
     {
 	if(!$umbrella){
 		$umbrella=new Umbrella;
+		$umbrella->setUser($this->getUser());
 	}
 	$form = $this->createForm(UmbrellasType::class,$umbrella);
 
@@ -30,7 +33,7 @@ final class UmbrellaController extends AbstractController{
 	    $entityManager->flush();
 
 	    // Redirection de l'utilisateur
-	    return $this->redirectToRoute('home');
+	    return $this->redirectToRoute('galery');
 	}
         return $this->render('umbrella/addupdate.html.twig', [
             'umbrellaform' => $form->createView(), //envoie du formulaire en VUE
@@ -41,9 +44,7 @@ final class UmbrellaController extends AbstractController{
     #[Route('/umbrella/delete/{id}', name: 'delete_umbrella')]
     public function remove(Umbrella $umbrella, Request $request, EntityManagerInterface $entityManager): Response
     {
-        
-        
-
+      
         if($this->isCsrfTokenValid('SUP'.$umbrella->getId(),$request->get('_token'))){
             $entityManager->remove($umbrella);
             $entityManager->flush();
