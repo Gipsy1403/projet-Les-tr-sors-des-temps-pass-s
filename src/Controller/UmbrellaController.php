@@ -20,9 +20,9 @@ final class UmbrellaController extends AbstractController{
 		if(!$umbrella){
 			$umbrella=new Umbrella;
 		}
-	$umbrella->setUser($this->getUser());
-	// $userId = $umbrella->getUser() ? $umbrella->getUser()->getId() : null;
-	dd($umbrella);
+	// $umbrella->setUser($this->getUser());
+
+	
 	$form = $this->createForm(UmbrellasType::class,$umbrella);
 
 	// Récupération des données POST du formulaire
