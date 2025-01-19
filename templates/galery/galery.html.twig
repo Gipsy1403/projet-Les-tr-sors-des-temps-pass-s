@@ -3,14 +3,15 @@
 {% block title %}Gallerie{% endblock %}
 
 {% block body %}
-{% for umbrella in umbrellas %}
-		<article>
+
+	<article>
+		{% for umbrella in umbrellas %}
 			<div class="container">
 				<div class="main_article">
 					<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
 					<h2>{{umbrella.title}}</h2>
-					
 					<p><strong>Description : </strong>{{umbrella.description}}</p>
+					<a href="">Lire plus...</a>
 				</div>
 				<div class="btn_bloc">
 					<a href={{path('modify_umbrella',{'id':umbrella.id})}}>Modifier</a>
@@ -21,6 +22,7 @@
 					</form>
 				</div>	
 			</div>
-		</article>
-	{% endfor %}	
+		{% endfor %}	
+	</article>
+	
 {% endblock %}

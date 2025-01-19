@@ -15,27 +15,17 @@
 	</section>
 
 
-	{% for umbrella in umbrellas %}
-		<article>
+	
+	<article>
+		{% for umbrella in umbrellas %}
 			<div class="container">
 				<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
 				<h3>{{umbrella.title}}</h3>
 				<p><strong>Description : </strong>{{umbrella.description}}</p>
-				<a href={{path(umbrella/view.html.twig)}}></a>
-				<div class="btn_bloc">
-					<a href={{path('modify_umbrella',{'id':umbrella.id})}}>Modifier</a>
-
-					<form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('delete_umbrella',{'id': umbrella.id})}}">
-					
-						<input type="hidden" name="_method" value="delete">
-						<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ umbrella.id)}}">
-
-						<button class="btn_suppr">Suppimer</button>
-					</form>
-				</div>	
+				<a href={{path('view',{id: umbrella.id})}}>Voir plus...</a>
 			</div>
-		</article>
-		{{dump(umbrellas)}}
-	{% endfor %}	
+		{% endfor %}	
+	</article>
+	
 	
 {% endblock %}
