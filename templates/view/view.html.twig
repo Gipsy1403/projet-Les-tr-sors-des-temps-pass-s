@@ -3,18 +3,12 @@
 {% block title %}Vue globale du Trésor{% endblock %}
 
 {% block body %}
-	{# <h1>{{ isModification ? "Modifier": "Ajouter"}}</h1>
-	{{form_start(umbrellaform)}}
-		{{form_widget(umbrellaform)}}
-		<button>{{ isModification ? "Modifier": "Ajouter"}}</button>
-	{{form_end(umbrellaform)}} #}
-
 	<h1>Vue globale du Trésor</h1>
 
 	<article>
 		<div class="container">
 			<div class="view">
-				<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
+				<img src={{asset('images/' ~ umbrella.imageName)}} alt="Image parapluie/ombrelle">
 				<div class="content_view">
 					<h3>{{umbrella.title}}</h3>
 					<p><strong>Description : </strong>{{umbrella.description}}</p>
@@ -22,8 +16,9 @@
 				</div>
 				<p><strong>Valeur estimée : </strong>{{umbrella.estimate}} €uro</p>
 			</div>
-
 		</div>
+
+		
 	</article>
 
 {% endblock %}

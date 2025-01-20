@@ -50,6 +50,7 @@ ul li a:hover{
 	text-align: center;
 	padding: 3rem;
 	width: 50%;
+	color : v.$textColor;
 }
 .parag{
 	@include m.flex(column,);
