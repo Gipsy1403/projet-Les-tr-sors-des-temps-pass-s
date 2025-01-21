@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Umbrella;
 use App\Form\UmbrellasType;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\Mapping\Id;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
@@ -20,9 +21,6 @@ final class UmbrellaController extends AbstractController{
 		if(!$umbrella){
 			$umbrella=new Umbrella;
 		}
-	// $umbrella->setUser($this->getUser());
-
-	
 	$form = $this->createForm(UmbrellasType::class,$umbrella);
 
 	// Récupération des données POST du formulaire
@@ -30,6 +28,7 @@ final class UmbrellaController extends AbstractController{
 	// Vérification si le formulaire est soumis et Valide
 		if($form->isSubmitted() && $form->isValid()){
 	// Persistance des données
+		$umbrella->setUser($this->getUser("id"));
 		$entityManager->persist($umbrella);
 	// Envoi en BDD
 		$entityManager->flush();

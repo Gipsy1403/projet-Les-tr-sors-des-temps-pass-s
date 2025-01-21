@@ -26,11 +26,15 @@
 						<li><a href={{path('galery')}}>Gallerie</a></li>
 						<li><a href={{path('contact')}}>Contact</a></li>
 						{% if not is_granted('ROLE_USER') %}
-						<li><a href={{path('app_login')}}>Se connecter</a></li>
-						<li><a href={{path('app_register')}}>S'inscrire</a></li>
-						{% else %}
-						<li><a href={{path('add_umbrella')}}>Ajouter</a></li>
-						<li><a href={{path('app_logout')}}>Se déconnecter</a></li>
+							<li><a href={{path('app_login')}}>Se connecter</a></li>
+							<li><a href={{path('app_register')}}>S'inscrire</a></li>
+							{% else %}
+								<li><a href={{path('add_umbrella')}}>Ajouter</a></li>
+								<li><a href={{path('app_logout')}}>Se déconnecter</a></li>
+						{% endif %}
+						{% if not is_granted('ROLE_ADMIN') %}
+							{% else %}
+								<li><a href={{path('admin')}}>Administrateur</a></li>
 						{% endif %}
 					</ul>
 				</div>

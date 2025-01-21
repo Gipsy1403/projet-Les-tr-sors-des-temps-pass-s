@@ -4,12 +4,15 @@
 
 {% block body %}
 
-	{# Ternaire pour vérifier l'existance de la variable 'isModification' #}
-	<h1> S'inscrire</h1>
+	
+	
 
-	{{form_start(userForm)}}
-	    {{form_widget(userForm)}}
-	    <button>Valider</button>
-	{{form_end(userForm)}}
+	<div class="form register">
+	<h1> S'inscrire</h1>
+		{{form_start(userForm)}}
+		    {{form_widget(userForm)}}
+		    <button>Valider</button>
+		{{form_end(userForm)}}
+	</div>
 	
 {% endblock %}

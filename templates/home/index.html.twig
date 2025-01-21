@@ -22,7 +22,7 @@
 				<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
 				<h3>{{umbrella.title}}</h3>
 				<p><strong>Description : </strong>{{umbrella.description|slice(0, 30)~"..."}}</p>
-				<a href={{path('view',{id: umbrella.id})}}>Voir plus...</a>
+				<a class="linksee" href={{path('view',{id: umbrella.id})}}>Voir plus...</a>
 			</div>
 		{% endfor %}	
 	</article>

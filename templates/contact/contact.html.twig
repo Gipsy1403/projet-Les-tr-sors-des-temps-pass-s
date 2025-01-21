@@ -3,7 +3,9 @@
 {% block title %}contact{% endblock %}
 
 {% block body %}
-	<form method="POST" action="">
+
+	<form class="form contact" method="POST" action="">
+	<h1>Contact</h1>
 		<p>
 			<input class="contactform" type="text" name="username" id="username" placeholder="Votre nom" size="30" maxlength="20">
 		</p>
@@ -15,6 +17,5 @@
 		</p>
 		<input class="contactform btn_form" type="submit" value="Envoyer">
 		</form>
-		</div>
-	</div>
+	
 {% endblock %}

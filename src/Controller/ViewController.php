@@ -17,35 +17,26 @@ final class ViewController extends AbstractController
     #[Route('/view/{id}', name: 'view')]
     public function viewUmbrella(Umbrella $umbrella): Response
     {
-
-       // Retourne le template Twig avec la variable
         return $this->render('view/view.html.twig', [
             'umbrella' => $umbrella,
 		]);
     }
 
-    public function index(Comment $comment = null,Request $request, EntityManagerInterface $entityManager): Response
+    #[Route('/comment/new', name: 'comment_view')]
+        public function index(Request $request, EntityManagerInterface $entityManager): Response
     {
 
-	$comment=new Comment;
-		
+	$comment=new Comment();
 	$form = $this->createForm(CommentType::class,$comment);
-
-	// Récupération des données POST du formulaire
 	$form->handleRequest($request);
-	// Vérification si le formulaire est soumis et Valide
-		if($form->isSubmitted() && $form->isValid()){
-	// Persistance des données
-		$entityManager->persist($comment);
-	// Envoi en BDD
-		$entityManager->flush();
 
-	// Redirection de l'utilisateur
+		if($form->isSubmitted() && $form->isValid()){
+		$entityManager->persist($comment);
+		$entityManager->flush();
 		return $this->redirectToRoute('view');
 	}
 	return $this->render('view/view.html.twig', [
-		'commentform' => $form->createView(), //envoie du formulaire en VUE
-		
+		'commentform' => $form->createView(), 
 	]);
 }
 }

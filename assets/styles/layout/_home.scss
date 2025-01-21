@@ -5,7 +5,11 @@ nav{
 	background-color: v.$foot;
 	height: 3rem;
 	@include m.flex;
-	position: relative;
+	position: fixed;
+	top: 0;
+	left:0;
+	width: 100%;
+	z-index: 1000;
 	.fa-bars{
 		display: none;
 		color: white;
@@ -15,7 +19,6 @@ nav{
 		padding:2rem 0;
 		display: flex;
 		li{
-			
 			margin:0 1rem;
 		}
 		a{
@@ -34,6 +37,7 @@ ul li a:hover{
 	background-image: url(/public/images/Capture\ d’écran\ 2025-01-15\ 114928.jpg);
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed;
 	height: 500px;
 	filter: sepia(0.8);
 	opacity: 0.8;
@@ -64,7 +68,9 @@ ul li a:hover{
 }
 
 article{
-	margin:0 1rem;
+	background-color: #f8f1e5;
+	background-image: url("https://www.transparenttextures.com/patterns/concrete-wall.png");
+	margin:1rem 1rem;
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
@@ -72,16 +78,27 @@ article{
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
+		align-items: space-between;
 		width: 300px;
-		height: 400px;
+		height: 500px;
 		border-radius: 5px;
 		background-color: v.$bgColor;
+		padding: 1rem;
+		border-radius: 10px;
+		margin: 3rem 0;
+		box-shadow: 2px 5px 10px gray;
+		// transform: translateY(-10px);
 		img{
 		    width: 250px;
 		    height: 250px;
 		    object-fit: cover;
+		    padding: 1rem;
 		}
+		p{
+			font-size: 0.9em;
+			padding: 1rem 0;
+		}
+		
 	}
 	.btn_bloc{
 		@include m.flex(row,margin-left);
@@ -91,4 +108,9 @@ article{
 		    color:v.$btnColor;
 		}
 	 }
+}
+.linksee, a{
+	color: v.$btnColor;
+	font-family: v.$sloganFont;
+	font-size: 1.2em;
 }

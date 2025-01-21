@@ -35,6 +35,8 @@ class UmbrellasType extends AbstractType
 			'expanded'=>true,
 			])
 		  ->add('imageFile', FileType::class,[ //Champ de fichier
+			"mapped"=>True,
+			"required"=>False,
 			'constraints' => [
 			    new File([
 				   'maxSize' => '2M', //Ajout de contrainte (Optionnel)

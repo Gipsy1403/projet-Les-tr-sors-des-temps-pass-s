@@ -1,6 +1,9 @@
 
 
 @media screen and (max-width:700px) {
+	nav{
+		position: absolute;
+	}
 	.fa-bars{
 		display: block;
 		margin-right: 2rem;

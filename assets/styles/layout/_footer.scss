@@ -1,0 +1,21 @@
+@use "../abstract/variable" as v; 
+@use "../abstract/mixin" as m; 
+
+footer{
+	background-color: v.$foot;
+	height: 3rem;
+	@include m.flex;
+	
+}
+a{
+	font-family: v.$titleFont;
+	color: white;
+	text-shadow: 1px 1px 2px black;
+}
+a:hover{
+	color: v.$btnColor;
+	text-shadow: none;
+}
+.fa-copyright{
+	color: white;
+}

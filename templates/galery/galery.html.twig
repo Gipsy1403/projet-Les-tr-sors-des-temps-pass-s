@@ -10,16 +10,18 @@
 				<div class="main_article">
 					<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
 					<h2>{{umbrella.title}}</h2>
-					<p><strong>Description : </strong>{{umbrella.description}}</p>
+					<p><strong>Description : </strong>{{umbrella.description|slice(0, 30)~"..."}}</p>
 					<a href="">Lire plus...</a>
 				</div>
 				<div class="btn_bloc">
+				{% if app.user == umbrella.user %}
 					<a href={{path('modify_umbrella',{'id':umbrella.id})}}>Modifier</a>
 					<form method="POST" onsubmit="return confirm('Confirmer la suppression?')" action="{{ path('delete_umbrella',{'id': umbrella.id})}}">
 						<input type="hidden" name="_method" value="delete">
 						<input type="hidden" name="_token" value="{{csrf_token('SUP' ~ umbrella.id)}}">
-						<button class="btn_suppr">Suppimer</button>
+						<button class="btn_suppr">Supprimer</button>
 					</form>
+				{% endif %}
 				</div>	
 			</div>
 		{% endfor %}	
