@@ -31,12 +31,14 @@ class UmbrellasType extends AbstractType
 		  ->add("category",EntityType::class, [
 			'choice_label' => 'Category',
 			"class"=>Category::class,
+			"label"=>"Catégorie :",
 			'multiple'=>false,
 			'expanded'=>true,
 			])
 		  ->add('imageFile', FileType::class,[ //Champ de fichier
 			"mapped"=>True,
 			"required"=>False,
+			"label"=>"Image",
 			'constraints' => [
 			    new File([
 				   'maxSize' => '2M', //Ajout de contrainte (Optionnel)

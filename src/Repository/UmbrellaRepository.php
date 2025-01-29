@@ -16,6 +16,28 @@ class UmbrellaRepository extends ServiceEntityRepository
         parent::__construct($registry, Umbrella::class);
     }
 
+
+    public function filterAsc(): array
+       {
+           return $this->createQueryBuilder('u')
+               ->orderBy('u.title', 'ASC')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
+
+	  public function filterCategory(): array
+       {
+           return $this->createQueryBuilder('u')
+		 	->leftJoin("u.category", "c")
+		 	->andWhere("c.category = :category")
+               ->setParameter(':category', '$category')
+               ->getQuery()
+               ->getResult()
+           ;
+       }
+
+	
 //    /**
 //     * @return Umbrella[] Returns an array of Umbrella objects
 //     */

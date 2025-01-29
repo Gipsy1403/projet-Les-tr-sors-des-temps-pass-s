@@ -1,0 +1,54 @@
+@use "../abstract/variable" as v; 
+@use "../abstract/mixin" as m; 
+
+.viewcard{
+	
+	width: 100%;
+	height: 100%;
+	.containerview{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: center;
+		width: 70%;
+		height: 700px;
+		
+		.partleft{
+			display: flex;
+			flex-direction: column;
+			width: 40%;
+			
+			img{
+				margin-bottom: 2rem;
+				border-radius: 10px;
+				box-shadow: 2px 5px 10px gray;
+			}
+		}
+		.partright{
+			display: flex;
+			flex-direction: column;
+			width: 60%;
+			border-right: 1px solid gray;
+			h2,p{
+				margin-bottom: 3rem;
+				margin-left: 1rem;
+				margin-right: 1rem;
+				line-height: 1.5;
+			}
+			h2{
+				text-align: center;
+			}
+			p{
+				text-align: justify;
+			}
+		}
+	}
+	.formcomment{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: 30%;
+	}
+
+}

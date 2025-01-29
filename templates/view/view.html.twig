@@ -5,23 +5,27 @@
 {% block body %}
 	<h1>Vue globale du Trésor</h1>
 
-	<article>
-		<div class="container">
-			<div class="view">
-				<img src={{asset('images/' ~ umbrella.imageName)}} alt="Image parapluie/ombrelle">
-				<div class="content_view">
-					<h3>{{umbrella.title}}</h3>
+	<article class="viewcard">
+		<div class="containerview">
+			
+				<div class="partleft">
+					<img src={{asset('images/' ~ umbrella.imageName)}} alt="Image parapluie/ombrelle">
+					<p><strong>Valeur estimée : </strong>{{umbrella.estimate}} €uro</p>
+				</div>
+				<div class="partright">
+					<h2>{{umbrella.title}}</h2>
 					<p><strong>Description : </strong>{{umbrella.description}}</p>
 					<p><strong>Caractéristique spécifique : </strong>{{umbrella.characteristic}}</p>
 				</div>
-				<p><strong>Valeur estimée : </strong>{{umbrella.estimate}} €uro</p>
-			</div>
+			
 		</div>
-
-		{{form_start(commentform)}}
-			{{form_widget(commentform)}}
-			<button>Commenter</button>
-		{{form_end(commentform)}}
+		<div class="formcomment">
+			<h3>Commentaires</h3>
+			{{form_start(commentform)}}
+				{{form_widget(commentform)}}
+				<button>Commenter</button>
+			{{form_end(commentform)}}
+		</div>
 		
 	</article>
 

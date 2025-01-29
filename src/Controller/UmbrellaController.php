@@ -26,7 +26,8 @@ final class UmbrellaController extends AbstractController{
 	// Récupération des données POST du formulaire
 	$form->handleRequest($request);
 	// Vérification si le formulaire est soumis et Valide
-		if($form->isSubmitted() && $form->isValid()){
+	if($form->isSubmitted() && $form->isValid()){
+			// dd($umbrella);
 	// Persistance des données
 		$umbrella->setUser($this->getUser("id"));
 		$entityManager->persist($umbrella);

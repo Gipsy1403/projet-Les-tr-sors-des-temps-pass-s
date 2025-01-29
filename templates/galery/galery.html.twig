@@ -4,14 +4,22 @@
 
 {% block body %}
 
+   {{ form_start(filterform) }}
+        {{ form_row(filterform.category) }}
+        <button type="submit"{{path("filtre")}}>Tri A-Z</button>
+
+        <button type="submit">Filtrer</button>
+    {{ form_end(filterform) }}
+
+
 	<article>
 		{% for umbrella in umbrellas %}
 			<div class="container">
 				<div class="main_article">
 					<img src={{asset('images/' ~ umbrella.imageName )}} alt="Image parapluie/ombrelle">
-					<h2>{{umbrella.title}}</h2>
+					<h3>{{umbrella.title}}</h3>
 					<p><strong>Description : </strong>{{umbrella.description|slice(0, 30)~"..."}}</p>
-					<a href="">Lire plus...</a>
+					<a class="linksee" href={{path('view',{id: umbrella.id})}}>Voir plus...</a>
 				</div>
 				<div class="btn_bloc">
 				{% if app.user == umbrella.user %}

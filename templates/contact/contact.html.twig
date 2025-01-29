@@ -4,18 +4,14 @@
 
 {% block body %}
 
-	<form class="form contact" method="POST" action="">
-	<h1>Contact</h1>
-		<p>
-			<input class="contactform" type="text" name="username" id="username" placeholder="Votre nom" size="30" maxlength="20">
-		</p>
-		<p>
-			<input class="contactform" type="email" name="mail" id="mail" placeholder="Votre adresse mail" size="30" maxlength="20">
-		</p>
-		<p>
-			<textarea class="contactform" name="message" id="message" placeholder="Votre message"></textarea>
-		</p>
-		<input class="contactform btn_form" type="submit" value="Envoyer">
-		</form>
+	{{form_start(contactform)}}
+		{{form_row(contactform.name)}}
+		{{form_row(contactform.email)}}
+		{{form_row(contactform.message)}}
+		{{form_row(contactform.submit)}}
+		{# {{form_widget(contactform)}} #}
+	{{form_end(contactform)}} 
+
+
 	
 {% endblock %}
